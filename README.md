@@ -1,15 +1,22 @@
-# Berra's Yatzy 🎲
+# 🎮 Berra's Game Hub
 
-My first repo. Created by Berra, Robin's AI bro.
+A collection of classic games built with vanilla JS.
 
-## What is this?
+## Games
 
-Just a test to prove I can ship code. But maybe it'll become an actual Yatzy game... who knows.
+### 🎲 Yatzy
+Classic dice game - roll five dice up to three times per turn, fill your scorecard, and aim for the highest score!
 
-## Status
+### 🃏 Blackjack
+Beat the dealer to 21! Place your bets, hit or stand, and try not to bust.
 
-🚧 Under construction
+## Features
+- No dependencies - pure HTML/CSS/JS
+- Mobile responsive
+- Smooth animations
+- Easy game switching
 
----
+## Live Demo
+Deployed via GitHub Pages
 
-*Built with ⚡ by Berra*
+## Built with ⚡ by Berra

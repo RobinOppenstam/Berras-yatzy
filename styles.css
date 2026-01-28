@@ -1,3 +1,6 @@
+/* Berra's Game Hub - Styles */
+/* ============================================================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,25 +15,118 @@ body {
     padding: 20px;
 }
 
+.hidden {
+    display: none !important;
+}
+
+/* ============================================================================
+   GAME HUB
+   ============================================================================ */
+
+.hub-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hub-container h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hub-subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 50px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.game-card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.1);
+    border-color: #e94560;
+    box-shadow: 0 10px 40px rgba(233, 69, 96, 0.3);
+}
+
+.game-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.game-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.game-card p {
+    color: #aaa;
+    font-size: 1rem;
+}
+
+.hub-footer {
+    margin-top: 40px;
+    color: #666;
+}
+
+/* ============================================================================
+   SHARED GAME STYLES
+   ============================================================================ */
+
 .game-container {
     max-width: 600px;
     margin: 0 auto;
 }
 
-h1 {
+.game-container h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 30px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-h2 {
+.game-container h2 {
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: #e94560;
 }
 
-/* Dice Section */
+.back-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #fff;
+}
+
+/* ============================================================================
+   YATZY STYLES
+   ============================================================================ */
+
 .dice-section {
     background: rgba(255,255,255,0.1);
     border-radius: 15px;
@@ -112,7 +208,6 @@ h2 {
     cursor: not-allowed;
 }
 
-/* Scorecard Section */
 .scorecard-section {
     background: rgba(255,255,255,0.1);
     border-radius: 15px;
@@ -185,9 +280,9 @@ h2 {
     font-weight: bold;
 }
 
-/* Game Over */
+/* Game Over (Yatzy) */
 .game-over {
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     position: fixed;
     top: 0;
     left: 0;
@@ -203,6 +298,7 @@ h2 {
 .game-over h2 {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .game-over p {
@@ -210,7 +306,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-.game-over #final-score {
+.game-over #yatzy-final-score {
     color: #ffd700;
 }
 
@@ -224,6 +320,7 @@ h2 {
     cursor: pointer;
     transition: all 0.2s ease;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .play-again-btn:hover {
@@ -231,13 +328,288 @@ h2 {
     transform: scale(1.05);
 }
 
-.hidden {
-    display: none !important;
+.back-to-hub-btn {
+    background: transparent;
+    color: #888;
+    border: 2px solid #888;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-/* Mobile Responsive */
+.back-to-hub-btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* ============================================================================
+   BLACKJACK STYLES
+   ============================================================================ */
+
+.blackjack-table {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.dealer-section,
+.player-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.dealer-section h2,
+.player-section h2 {
+    margin-bottom: 15px;
+}
+
+.hand-score {
+    color: #ffd700;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-height: 120px;
+}
+
+/* Playing Cards */
+.card {
+    width: 80px;
+    height: 112px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.black {
+    color: #1a1a2e;
+}
+
+.card.red {
+    color: #e94560;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
+    color: #4a5568;
+    font-size: 3rem;
+}
+
+.card-corner {
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.card-corner.top {
+    top: 5px;
+    left: 8px;
+}
+
+.card-corner.bottom {
+    bottom: 5px;
+    right: 8px;
+    transform: rotate(180deg);
+}
+
+.card-center {
+    font-size: 2.5rem;
+}
+
+/* Betting Section */
+.bet-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255,215,0,0.1);
+    border-radius: 10px;
+}
+
+.chips-display,
+.current-bet {
+    font-size: 1.2rem;
+}
+
+.chips-display span:last-child,
+.current-bet span:last-child {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Controls */
+.betting-controls,
+.game-controls {
+    text-align: center;
+}
+
+.chip-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.chip-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%);
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip-btn:hover {
+    transform: scale(1.1);
+    background: #ffd700;
+    color: #1a1a2e;
+}
+
+.bet-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #e94560;
+    color: white;
+}
+
+.action-btn.primary:hover:not(:disabled) {
+    background: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.action-btn.primary:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.action-btn.secondary {
+    background: transparent;
+    border: 2px solid #888;
+    color: #888;
+}
+
+.action-btn.secondary:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.game-controls .action-btn {
+    background: #00c864;
+    color: white;
+}
+
+.game-controls .action-btn:hover:not(:disabled) {
+    background: #00e676;
+    transform: scale(1.05);
+}
+
+.game-controls .action-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+/* Messages */
+.game-message {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.game-message.win {
+    background: rgba(0, 200, 100, 0.3);
+    color: #00e676;
+}
+
+.game-message.lose {
+    background: rgba(233, 69, 96, 0.3);
+    color: #ff6b6b;
+}
+
+.game-message.push {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+}
+
+.new-round-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    border: none;
+    background: #e94560;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.new-round-btn:hover {
+    background: #ff6b6b;
+    transform: scale(1.05);
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE
+   ============================================================================ */
+
 @media (max-width: 480px) {
-    h1 {
+    .hub-container h1 {
+        font-size: 2rem;
+    }
+    
+    .game-icon {
+        font-size: 3rem;
+    }
+    
+    .game-container h1 {
         font-size: 1.8rem;
     }
     
@@ -249,5 +621,29 @@ h2 {
     .die .dot {
         width: 10px;
         height: 10px;
+    }
+    
+    .card {
+        width: 60px;
+        height: 84px;
+    }
+    
+    .card-center {
+        font-size: 1.8rem;
+    }
+    
+    .card-corner {
+        font-size: 0.7rem;
+    }
+    
+    .chip-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+    
+    .bet-section {
+        gap: 20px;
+        font-size: 1rem;
     }
 }

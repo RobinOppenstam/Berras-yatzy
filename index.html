@@ -3,17 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berra's Yatzy 🎲</title>
+    <title>Berra's Game Hub 🎮</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>🎲 Berra's Yatzy</h1>
+    <!-- GAME HUB -->
+    <div id="hub" class="hub-container">
+        <h1>🎮 Berra's Game Hub</h1>
+        <p class="hub-subtitle">Choose your game</p>
+        
+        <div class="game-grid">
+            <div class="game-card" data-game="yatzy">
+                <div class="game-icon">🎲</div>
+                <h2>Yatzy</h2>
+                <p>Classic dice game - get the highest score!</p>
+            </div>
+            
+            <div class="game-card" data-game="blackjack">
+                <div class="game-icon">🃏</div>
+                <h2>Blackjack</h2>
+                <p>Beat the dealer to 21!</p>
+            </div>
+        </div>
+        
+        <footer class="hub-footer">
+            <p>Built with ⚡ by Berra</p>
+        </footer>
+    </div>
+
+    <!-- YATZY GAME -->
+    <div id="yatzy-game" class="game-container hidden">
+        <button class="back-btn" data-back>← Back to Hub</button>
+        <h1>🎲 Yatzy</h1>
         
         <div class="dice-section">
-            <div class="dice-container" id="dice-container">
-                <!-- Dice will be rendered here -->
-            </div>
+            <div class="dice-container" id="dice-container"></div>
             <div class="roll-info">
                 <span id="rolls-left">Rolls left: 3</span>
                 <button id="roll-btn" class="roll-btn">Roll Dice</button>
@@ -22,22 +46,73 @@
         
         <div class="scorecard-section">
             <h2>Scorecard</h2>
-            <div class="scorecard" id="scorecard">
-                <!-- Scorecard will be rendered here -->
-            </div>
+            <div class="scorecard" id="scorecard"></div>
             <div class="total-score">
                 <span>Total: </span>
                 <span id="total-score">0</span>
             </div>
         </div>
         
-        <div id="game-over" class="game-over hidden">
+        <div id="yatzy-game-over" class="game-over hidden">
             <h2>Game Over!</h2>
-            <p>Final Score: <span id="final-score">0</span></p>
-            <button id="play-again-btn" class="play-again-btn">Play Again</button>
+            <p>Final Score: <span id="yatzy-final-score">0</span></p>
+            <button id="yatzy-play-again-btn" class="play-again-btn">Play Again</button>
+            <button class="back-to-hub-btn" data-back>Back to Hub</button>
         </div>
     </div>
-    
-    <script src="game.js"></script>
+
+    <!-- BLACKJACK GAME -->
+    <div id="blackjack-game" class="game-container hidden">
+        <button class="back-btn" data-back>← Back to Hub</button>
+        <h1>🃏 Blackjack</h1>
+        
+        <div class="blackjack-table">
+            <div class="dealer-section">
+                <h2>Dealer <span id="dealer-score" class="hand-score"></span></h2>
+                <div class="cards" id="dealer-cards"></div>
+            </div>
+            
+            <div class="player-section">
+                <h2>You <span id="player-score" class="hand-score"></span></h2>
+                <div class="cards" id="player-cards"></div>
+            </div>
+            
+            <div class="bet-section">
+                <div class="chips-display">
+                    <span>Chips: $</span><span id="chips">1000</span>
+                </div>
+                <div class="current-bet">
+                    <span>Bet: $</span><span id="current-bet">0</span>
+                </div>
+            </div>
+            
+            <div class="betting-controls" id="betting-controls">
+                <div class="chip-buttons">
+                    <button class="chip-btn" data-chip="10">$10</button>
+                    <button class="chip-btn" data-chip="25">$25</button>
+                    <button class="chip-btn" data-chip="50">$50</button>
+                    <button class="chip-btn" data-chip="100">$100</button>
+                </div>
+                <div class="bet-actions">
+                    <button id="clear-bet-btn" class="action-btn secondary">Clear</button>
+                    <button id="deal-btn" class="action-btn primary" disabled>Deal</button>
+                </div>
+            </div>
+            
+            <div class="game-controls hidden" id="game-controls">
+                <button id="hit-btn" class="action-btn">Hit</button>
+                <button id="stand-btn" class="action-btn">Stand</button>
+                <button id="double-btn" class="action-btn">Double</button>
+            </div>
+            
+            <div id="blackjack-message" class="game-message hidden"></div>
+            
+            <button id="new-round-btn" class="new-round-btn hidden">New Round</button>
+        </div>
+    </div>
+
+    <script src="hub.js"></script>
+    <script src="yatzy.js"></script>
+    <script src="blackjack.js"></script>
 </body>
 </html>
