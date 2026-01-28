@@ -639,6 +639,242 @@ body {
 }
 
 /* ============================================================================
+   SLOTS STYLES - Mobile First
+   ============================================================================ */
+
+.slots-machine {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 20px 16px;
+}
+
+.slots-display {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: linear-gradient(180deg, #0a0a15 0%, #1a1a2e 100%);
+    border-radius: 12px;
+    border: 3px solid #ffd700;
+    box-shadow: inset 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.slots-reel {
+    width: 80px;
+    height: 90px;
+    background: linear-gradient(180deg, #2c2c4a 0%, #1a1a2e 50%, #2c2c4a 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #444;
+}
+
+.reel-symbol {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.reel-symbol.final {
+    animation: dropIn 0.3s ease-out;
+}
+
+@keyframes dropIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slots-reel.spinning .reel-strip {
+    animation: spin 0.15s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50px); }
+}
+
+.slots-reel.winner {
+    animation: pulse 0.3s ease-in-out 3;
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255,215,0,0.5);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.slots-message {
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.slots-message.win {
+    background: rgba(0, 200, 100, 0.3);
+    color: #00e676;
+}
+
+.slots-message.lose {
+    background: rgba(255,255,255,0.1);
+    color: #888;
+}
+
+.slots-message.spinning {
+    background: rgba(255,215,0,0.2);
+    color: #ffd700;
+}
+
+.slots-message.info {
+    background: rgba(100,150,255,0.2);
+    color: #88aaff;
+}
+
+.slots-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 12px;
+    background: rgba(255,215,0,0.1);
+    border-radius: 10px;
+}
+
+.slots-credits,
+.slots-current-bet {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.slots-credits span:last-child,
+.slots-current-bet span:last-child {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.slots-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.bet-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bet-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #ffd700;
+    background: transparent;
+    color: #ffd700;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bet-btn:active:not(:disabled) {
+    background: #ffd700;
+    color: #1a1a2e;
+    transform: scale(0.95);
+}
+
+.bet-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.bet-label {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.spin-btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+    color: white;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(233,69,96,0.4);
+}
+
+.spin-btn:active:not(:disabled) {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(233,69,96,0.4);
+}
+
+.spin-btn:disabled {
+    background: #555;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.paytable {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.paytable h3 {
+    text-align: center;
+    font-size: 1rem;
+    color: #ffd700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.paytable-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+    font-size: 0.95rem;
+}
+
+.paytable-grid span:nth-child(odd) {
+    text-align: left;
+}
+
+.paytable-grid span:nth-child(even) {
+    text-align: right;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* ============================================================================
    TABLET & DESKTOP ENHANCEMENTS
    ============================================================================ */
 
@@ -717,6 +953,20 @@ body {
     .new-round-btn {
         width: auto;
         padding: 16px 50px;
+    }
+    
+    .slots-reel {
+        width: 90px;
+        height: 100px;
+    }
+    
+    .reel-symbol {
+        font-size: 3.5rem;
+    }
+    
+    .slots-display {
+        gap: 12px;
+        padding: 20px;
     }
 }
 
@@ -816,6 +1066,17 @@ body {
     
     .card:hover {
         transform: translateY(-5px);
+    }
+    
+    .bet-btn:hover:not(:disabled) {
+        background: #ffd700;
+        color: #1a1a2e;
+        transform: scale(1.05);
+    }
+    
+    .spin-btn:hover:not(:disabled) {
+        transform: scale(1.03);
+        box-shadow: 0 6px 20px rgba(233,69,96,0.5);
     }
 }
 

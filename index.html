@@ -31,6 +31,14 @@
                     <p>Beat the dealer to 21!</p>
                 </div>
             </div>
+            
+            <div class="game-card" data-game="slots">
+                <div class="game-icon">🎰</div>
+                <div class="game-card-info">
+                    <h2>Slots</h2>
+                    <p>Spin to win big!</p>
+                </div>
+            </div>
         </div>
         
         <footer class="hub-footer">
@@ -118,8 +126,56 @@
         </div>
     </div>
 
+    <!-- SLOTS GAME -->
+    <div id="slots-game" class="game-container hidden">
+        <button class="back-btn" data-back>← Back to Hub</button>
+        <h1>🎰 Slots</h1>
+        
+        <div class="slots-machine">
+            <div class="slots-display">
+                <div class="slots-reel"><div class="reel-symbol">🍒</div></div>
+                <div class="slots-reel"><div class="reel-symbol">🍒</div></div>
+                <div class="slots-reel"><div class="reel-symbol">🍒</div></div>
+            </div>
+            
+            <div id="slots-message" class="slots-message hidden"></div>
+            
+            <div class="slots-info">
+                <div class="slots-credits">
+                    <span>Credits: $</span><span id="slots-credits">1000</span>
+                </div>
+                <div class="slots-current-bet">
+                    <span>Bet: $</span><span id="slots-bet">10</span>
+                </div>
+            </div>
+            
+            <div class="slots-controls">
+                <div class="bet-controls">
+                    <button class="bet-btn" data-bet="decrease">−</button>
+                    <span class="bet-label">Bet</span>
+                    <button class="bet-btn" data-bet="increase">+</button>
+                </div>
+                <button id="spin-btn" class="spin-btn">SPIN</button>
+            </div>
+            
+            <div class="paytable">
+                <h3>Payouts</h3>
+                <div class="paytable-grid">
+                    <span>💎💎💎</span><span>50x</span>
+                    <span>7️⃣7️⃣7️⃣</span><span>25x</span>
+                    <span>⭐⭐⭐</span><span>10x</span>
+                    <span>🍇🍇🍇</span><span>6x</span>
+                    <span>🍊🍊🍊</span><span>4x</span>
+                    <span>🍋🍋🍋</span><span>3x</span>
+                    <span>🍒🍒🍒</span><span>2x</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="hub.js"></script>
     <script src="yatzy.js"></script>
     <script src="blackjack.js"></script>
+    <script src="slots.js"></script>
 </body>
 </html>

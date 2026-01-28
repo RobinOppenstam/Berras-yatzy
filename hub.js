@@ -28,6 +28,9 @@ const Hub = {
         } else if (game === 'blackjack') {
             document.getElementById('blackjack-game').classList.remove('hidden');
             if (typeof Blackjack !== 'undefined') Blackjack.reset();
+        } else if (game === 'slots') {
+            document.getElementById('slots-game').classList.remove('hidden');
+            if (typeof Slots !== 'undefined') Slots.reset();
         }
         
         this.currentGame = game;
