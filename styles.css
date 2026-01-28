@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    color: #fff;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #e94560;
+}
+
+/* Dice Section */
+.dice-section {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.dice-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.die {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.die:hover {
+    transform: scale(1.05);
+}
+
+.die.held {
+    background: #ffd700;
+    box-shadow: 0 0 15px rgba(255,215,0,0.5);
+}
+
+.die .dot {
+    width: 12px;
+    height: 12px;
+    background: #1a1a2e;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+}
+
+.roll-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#rolls-left {
+    font-size: 1.1rem;
+    color: #e94560;
+}
+
+.roll-btn {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.roll-btn:hover:not(:disabled) {
+    background: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.roll-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+/* Scorecard Section */
+.scorecard-section {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.scorecard {
+    display: grid;
+    gap: 8px;
+}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.score-row:hover:not(.locked) {
+    background: rgba(233, 69, 96, 0.3);
+}
+
+.score-row.locked {
+    background: rgba(0, 200, 100, 0.2);
+    cursor: default;
+}
+
+.score-row .category {
+    font-weight: 500;
+}
+
+.score-row .score {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.score-row.locked .score {
+    color: #00c864;
+}
+
+.section-header {
+    background: rgba(233, 69, 96, 0.3);
+    font-weight: bold;
+    cursor: default;
+}
+
+.section-header:hover {
+    background: rgba(233, 69, 96, 0.3) !important;
+}
+
+.bonus-row {
+    border: 2px dashed #ffd700;
+}
+
+.total-score {
+    text-align: right;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255,255,255,0.2);
+}
+
+#total-score {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Game Over */
+.game-over {
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.game-over h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.game-over p {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.game-over #final-score {
+    color: #ffd700;
+}
+
+.play-again-btn {
+    background: #00c864;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.play-again-btn:hover {
+    background: #00e676;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .die {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .die .dot {
+        width: 10px;
+        height: 10px;
+    }
+}

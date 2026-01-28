@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berra's Yatzy 🎲</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎲 Berra's Yatzy</h1>
+        
+        <div class="dice-section">
+            <div class="dice-container" id="dice-container">
+                <!-- Dice will be rendered here -->
+            </div>
+            <div class="roll-info">
+                <span id="rolls-left">Rolls left: 3</span>
+                <button id="roll-btn" class="roll-btn">Roll Dice</button>
+            </div>
+        </div>
+        
+        <div class="scorecard-section">
+            <h2>Scorecard</h2>
+            <div class="scorecard" id="scorecard">
+                <!-- Scorecard will be rendered here -->
+            </div>
+            <div class="total-score">
+                <span>Total: </span>
+                <span id="total-score">0</span>
+            </div>
+        </div>
+        
+        <div id="game-over" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <button id="play-again-btn" class="play-again-btn">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

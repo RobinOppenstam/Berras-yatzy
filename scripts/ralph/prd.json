@@ -1,0 +1,124 @@
+{
+  "featureName": "Berra's Yatzy Web Game",
+  "branchName": "ralph/yatzy-game",
+  "description": "A simple, playable Yatzy dice game that runs in the browser. Single player, clean UI, vanilla JS.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Project Setup",
+      "priority": 1,
+      "acceptanceCriteria": [
+        "index.html with basic structure",
+        "styles.css with basic styling", 
+        "game.js with module structure",
+        "Game title and container visible"
+      ],
+      "passes": false,
+      "notes": "Foundation - keep it minimal"
+    },
+    {
+      "id": "US-002",
+      "title": "Dice Display",
+      "priority": 2,
+      "acceptanceCriteria": [
+        "5 dice rendered visually showing dots pattern",
+        "Dice are clearly visible and styled",
+        "Each die shows a value 1-6"
+      ],
+      "passes": false,
+      "notes": "Use CSS for dice dots, not images"
+    },
+    {
+      "id": "US-003",
+      "title": "Roll Dice",
+      "priority": 3,
+      "acceptanceCriteria": [
+        "Roll button visible",
+        "Clicking roll randomizes all unheld dice",
+        "Maximum 3 rolls per turn displayed",
+        "Roll button disabled when no rolls left"
+      ],
+      "passes": false,
+      "notes": "Track rolls remaining in game state"
+    },
+    {
+      "id": "US-004",
+      "title": "Hold Dice",
+      "priority": 4,
+      "acceptanceCriteria": [
+        "Clicking a die toggles hold state",
+        "Held dice visually distinct with highlight",
+        "Held dice don't change on roll",
+        "Can toggle hold on/off"
+      ],
+      "passes": false,
+      "notes": "Visual feedback important for UX"
+    },
+    {
+      "id": "US-005",
+      "title": "Scorecard Display",
+      "priority": 5,
+      "acceptanceCriteria": [
+        "All 13 Yatzy categories displayed",
+        "Upper section: Ones through Sixes",
+        "Lower section: Three of a Kind, Four of a Kind, Full House, Small Straight, Large Straight, Yahtzee, Chance",
+        "Shows potential score for each unfilled category",
+        "Shows locked scores for filled categories"
+      ],
+      "passes": false,
+      "notes": "Two-column layout works well"
+    },
+    {
+      "id": "US-006",
+      "title": "Score Selection",
+      "priority": 6,
+      "acceptanceCriteria": [
+        "Clicking an available category scores it",
+        "Score is calculated correctly",
+        "Category becomes locked after scoring",
+        "Turn resets after scoring"
+      ],
+      "passes": false,
+      "notes": "This completes the core game loop"
+    },
+    {
+      "id": "US-007",
+      "title": "Score Calculation",
+      "priority": 7,
+      "acceptanceCriteria": [
+        "Upper section: sum of matching dice",
+        "Three of a Kind: sum of all dice if 3+ match",
+        "Four of a Kind: sum of all dice if 4+ match",
+        "Full House: 25 points if 3+2 match",
+        "Small Straight: 30 points if 4 consecutive",
+        "Large Straight: 40 points if 5 consecutive",
+        "Yahtzee: 50 points if all 5 match",
+        "Chance: sum of all dice",
+        "Upper bonus: 35 points if upper >= 63"
+      ],
+      "passes": false,
+      "notes": "Core game logic - test thoroughly"
+    },
+    {
+      "id": "US-008",
+      "title": "Game End",
+      "priority": 8,
+      "acceptanceCriteria": [
+        "Game detects when all 13 categories filled",
+        "Final score displayed prominently",
+        "Play Again button to restart"
+      ],
+      "passes": false,
+      "notes": "Celebrate the completion!"
+    }
+  ],
+  "qualityChecks": {
+    "lint": "echo 'No linter configured'",
+    "test": "echo 'Manual browser test required'"
+  },
+  "techStack": {
+    "framework": "Vanilla JS",
+    "styling": "CSS",
+    "testing": "Manual"
+  }
+}
