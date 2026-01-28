@@ -9,11 +9,11 @@
       "priority": 1,
       "acceptanceCriteria": [
         "index.html with basic structure",
-        "styles.css with basic styling", 
+        "styles.css with basic styling",
         "game.js with module structure",
         "Game title and container visible"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Foundation - keep it minimal"
     },
     {
@@ -25,7 +25,7 @@
         "Dice are clearly visible and styled",
         "Each die shows a value 1-6"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Use CSS for dice dots, not images"
     },
     {
@@ -38,7 +38,7 @@
         "Maximum 3 rolls per turn displayed",
         "Roll button disabled when no rolls left"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Track rolls remaining in game state"
     },
     {
@@ -51,7 +51,7 @@
         "Held dice don't change on roll",
         "Can toggle hold on/off"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Visual feedback important for UX"
     },
     {
@@ -65,7 +65,7 @@
         "Shows potential score for each unfilled category",
         "Shows locked scores for filled categories"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Two-column layout works well"
     },
     {
@@ -78,7 +78,7 @@
         "Category becomes locked after scoring",
         "Turn resets after scoring"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "This completes the core game loop"
     },
     {
@@ -96,7 +96,7 @@
         "Chance: sum of all dice",
         "Upper bonus: 35 points if upper >= 63"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Core game logic - test thoroughly"
     },
     {
@@ -108,7 +108,7 @@
         "Final score displayed prominently",
         "Play Again button to restart"
       ],
-      "passes": false,
+      "passes": true,
       "notes": "Celebrate the completion!"
     }
   ],
