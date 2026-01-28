@@ -1,18 +1,26 @@
-/* Berra's Game Hub - Styles */
+/* Berra's Game Hub - Mobile-First Styles */
 /* ============================================================================ */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     color: #fff;
-    padding: 20px;
+    padding: 12px;
+    padding-bottom: env(safe-area-inset-bottom, 12px);
 }
 
 .hidden {
@@ -20,70 +28,79 @@ body {
 }
 
 /* ============================================================================
-   GAME HUB
+   GAME HUB - Mobile First
    ============================================================================ */
 
 .hub-container {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    padding: 40px 20px;
+    padding: 20px 0;
 }
 
 .hub-container h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 8px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hub-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #888;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
 }
 
 .game-card {
     background: rgba(255,255,255,0.05);
     border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 40px 30px;
+    border-radius: 16px;
+    padding: 24px 20px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
 }
 
-.game-card:hover {
-    transform: translateY(-5px);
+.game-card:active {
+    transform: scale(0.98);
     background: rgba(255,255,255,0.1);
     border-color: #e94560;
-    box-shadow: 0 10px 40px rgba(233, 69, 96, 0.3);
 }
 
 .game-icon {
-    font-size: 4rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.game-card-info {
+    flex: 1;
 }
 
 .game-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 4px;
     color: #fff;
 }
 
 .game-card p {
     color: #aaa;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
 }
 
 .hub-footer {
-    margin-top: 40px;
+    margin-top: 30px;
     color: #666;
+    font-size: 0.85rem;
 }
 
 /* ============================================================================
@@ -97,14 +114,14 @@ body {
 
 .game-container h1 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .game-container h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
     color: #e94560;
 }
 
@@ -114,60 +131,62 @@ body {
     color: #888;
     font-size: 1rem;
     cursor: pointer;
-    padding: 10px 0;
-    margin-bottom: 10px;
+    padding: 12px 0;
+    margin-bottom: 8px;
     transition: color 0.2s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
-.back-btn:hover {
+.back-btn:active {
     color: #fff;
 }
 
 /* ============================================================================
-   YATZY STYLES
+   YATZY STYLES - Mobile First
    ============================================================================ */
 
 .dice-section {
     background: rgba(255,255,255,0.1);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
 }
 
 .dice-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
 }
 
 .die {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 8px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    padding: 8px;
+    padding: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.15s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
-.die:hover {
-    transform: scale(1.05);
+.die:active {
+    transform: scale(0.95);
 }
 
 .die.held {
     background: #ffd700;
-    box-shadow: 0 0 15px rgba(255,215,0,0.5);
+    box-shadow: 0 0 12px rgba(255,215,0,0.5);
 }
 
 .die .dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     background: #1a1a2e;
     border-radius: 50%;
     justify-self: center;
@@ -178,61 +197,66 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 #rolls-left {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #e94560;
+    font-weight: 600;
 }
 
 .roll-btn {
     background: #e94560;
     color: white;
     border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
+    padding: 14px 28px;
+    font-size: 1rem;
     border-radius: 25px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     font-weight: bold;
+    min-height: 48px;
 }
 
-.roll-btn:hover:not(:disabled) {
+.roll-btn:active:not(:disabled) {
     background: #ff6b6b;
-    transform: scale(1.05);
+    transform: scale(0.97);
 }
 
 .roll-btn:disabled {
-    background: #666;
+    background: #555;
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .scorecard-section {
     background: rgba(255,255,255,0.1);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
 }
 
 .scorecard {
-    display: grid;
-    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .score-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 12px 14px;
     background: rgba(255,255,255,0.05);
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
+    min-height: 48px;
 }
 
-.score-row:hover:not(.locked) {
-    background: rgba(233, 69, 96, 0.3);
+.score-row:active:not(.locked):not(.section-header) {
+    background: rgba(233, 69, 96, 0.4);
 }
 
 .score-row.locked {
@@ -242,11 +266,13 @@ body {
 
 .score-row .category {
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .score-row .score {
     font-weight: bold;
     color: #ffd700;
+    font-size: 1rem;
 }
 
 .score-row.locked .score {
@@ -257,10 +283,7 @@ body {
     background: rgba(233, 69, 96, 0.3);
     font-weight: bold;
     cursor: default;
-}
-
-.section-header:hover {
-    background: rgba(233, 69, 96, 0.3) !important;
+    min-height: 40px;
 }
 
 .bonus-row {
@@ -269,9 +292,9 @@ body {
 
 .total-score {
     text-align: right;
-    font-size: 1.5rem;
-    margin-top: 15px;
-    padding-top: 15px;
+    font-size: 1.3rem;
+    margin-top: 12px;
+    padding-top: 12px;
     border-top: 2px solid rgba(255,255,255,0.2);
 }
 
@@ -282,7 +305,7 @@ body {
 
 /* Game Over (Yatzy) */
 .game-over {
-    background: rgba(0,0,0,0.95);
+    background: rgba(0,0,0,0.97);
     position: fixed;
     top: 0;
     left: 0;
@@ -293,16 +316,17 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 100;
+    padding: 20px;
 }
 
 .game-over h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
     color: #fff;
 }
 
 .game-over p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 30px;
 }
 
@@ -314,88 +338,94 @@ body {
     background: #00c864;
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.2rem;
+    padding: 16px 40px;
+    font-size: 1.1rem;
     border-radius: 25px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    min-height: 52px;
+    min-width: 200px;
 }
 
-.play-again-btn:hover {
+.play-again-btn:active {
     background: #00e676;
-    transform: scale(1.05);
+    transform: scale(0.97);
 }
 
 .back-to-hub-btn {
     background: transparent;
     color: #888;
     border: 2px solid #888;
-    padding: 12px 30px;
+    padding: 14px 30px;
     font-size: 1rem;
     border-radius: 25px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
+    min-height: 48px;
 }
 
-.back-to-hub-btn:hover {
+.back-to-hub-btn:active {
     color: #fff;
     border-color: #fff;
 }
 
 /* ============================================================================
-   BLACKJACK STYLES
+   BLACKJACK STYLES - Mobile First
    ============================================================================ */
 
 .blackjack-table {
     background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 16px;
 }
 
 .dealer-section,
 .player-section {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .dealer-section h2,
 .player-section h2 {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .hand-score {
     color: #ffd700;
     font-size: 1rem;
-    margin-left: 10px;
 }
 
 .cards {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 6px;
     flex-wrap: wrap;
-    min-height: 120px;
+    min-height: 100px;
 }
 
-/* Playing Cards */
+/* Playing Cards - Mobile optimized */
 .card {
-    width: 80px;
-    height: 112px;
+    width: 58px;
+    height: 82px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    transition: transform 0.2s;
+    font-size: 1.6rem;
+    transition: transform 0.15s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.card:active {
+    transform: translateY(-3px);
 }
 
 .card.black {
@@ -409,50 +439,55 @@ body {
 .card-back {
     background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
     color: #4a5568;
-    font-size: 3rem;
+    font-size: 2.2rem;
 }
 
 .card-corner {
     position: absolute;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: bold;
+    line-height: 1;
 }
 
 .card-corner.top {
-    top: 5px;
-    left: 8px;
+    top: 4px;
+    left: 5px;
 }
 
 .card-corner.bottom {
-    bottom: 5px;
-    right: 8px;
+    bottom: 4px;
+    right: 5px;
     transform: rotate(180deg);
 }
 
 .card-center {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 
 /* Betting Section */
 .bet-section {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
-    padding: 15px;
+    gap: 24px;
+    margin-bottom: 16px;
+    padding: 12px;
     background: rgba(255,215,0,0.1);
     border-radius: 10px;
 }
 
 .chips-display,
 .current-bet {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .chips-display span:last-child,
 .current-bet span:last-child {
     color: #ffd700;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 /* Controls */
@@ -464,26 +499,26 @@ body {
 .chip-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
 }
 
 .chip-btn {
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     border: 3px solid #ffd700;
     background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%);
     color: #ffd700;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.15s;
+    min-width: 54px;
 }
 
-.chip-btn:hover {
-    transform: scale(1.1);
+.chip-btn:active {
+    transform: scale(0.93);
     background: #ffd700;
     color: #1a1a2e;
 }
@@ -491,17 +526,18 @@ body {
 .bet-actions {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .action-btn {
-    padding: 12px 30px;
-    font-size: 1.1rem;
+    padding: 14px 24px;
+    font-size: 1rem;
     border-radius: 25px;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.2s;
+    transition: all 0.15s;
+    min-height: 48px;
 }
 
 .action-btn.primary {
@@ -509,23 +545,24 @@ body {
     color: white;
 }
 
-.action-btn.primary:hover:not(:disabled) {
+.action-btn.primary:active:not(:disabled) {
     background: #ff6b6b;
-    transform: scale(1.05);
+    transform: scale(0.97);
 }
 
 .action-btn.primary:disabled {
-    background: #666;
+    background: #555;
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .action-btn.secondary {
     background: transparent;
-    border: 2px solid #888;
+    border: 2px solid #666;
     color: #888;
 }
 
-.action-btn.secondary:hover {
+.action-btn.secondary:active {
     border-color: #fff;
     color: #fff;
 }
@@ -533,32 +570,35 @@ body {
 .game-controls {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .game-controls .action-btn {
     background: #00c864;
     color: white;
+    flex: 1;
+    max-width: 110px;
 }
 
-.game-controls .action-btn:hover:not(:disabled) {
+.game-controls .action-btn:active:not(:disabled) {
     background: #00e676;
-    transform: scale(1.05);
+    transform: scale(0.97);
 }
 
 .game-controls .action-btn:disabled {
-    background: #666;
+    background: #555;
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* Messages */
 .game-message {
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 16px;
+    margin-top: 16px;
     border-radius: 10px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -579,8 +619,9 @@ body {
 
 .new-round-btn {
     display: block;
-    margin: 20px auto 0;
-    padding: 15px 40px;
+    width: 100%;
+    margin: 16px auto 0;
+    padding: 16px;
     font-size: 1.1rem;
     border-radius: 25px;
     border: none;
@@ -588,62 +629,200 @@ body {
     color: white;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.2s;
+    transition: all 0.15s;
+    min-height: 52px;
 }
 
-.new-round-btn:hover {
+.new-round-btn:active {
     background: #ff6b6b;
-    transform: scale(1.05);
+    transform: scale(0.98);
 }
 
 /* ============================================================================
-   MOBILE RESPONSIVE
+   TABLET & DESKTOP ENHANCEMENTS
    ============================================================================ */
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
+    body {
+        padding: 20px;
+    }
+    
     .hub-container h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .game-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .game-card {
+        flex: 1;
+        min-width: 250px;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 24px;
     }
     
     .game-icon {
+        font-size: 3.5rem;
+    }
+    
+    .game-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .die {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+    }
+    
+    .die .dot {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .dice-container {
+        gap: 12px;
+    }
+    
+    .card {
+        width: 70px;
+        height: 98px;
+    }
+    
+    .card-center {
+        font-size: 2.2rem;
+    }
+    
+    .card-corner {
+        font-size: 0.8rem;
+    }
+    
+    .cards {
+        gap: 10px;
+    }
+    
+    .chip-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 0.9rem;
+    }
+    
+    .chip-buttons {
+        gap: 12px;
+    }
+    
+    .new-round-btn {
+        width: auto;
+        padding: 16px 50px;
+    }
+}
+
+@media (min-width: 600px) {
+    .hub-container h1 {
         font-size: 3rem;
     }
     
     .game-container h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
     
     .die {
-        width: 50px;
-        height: 50px;
+        width: 65px;
+        height: 65px;
     }
     
-    .die .dot {
-        width: 10px;
-        height: 10px;
+    .dice-container {
+        gap: 15px;
     }
     
     .card {
-        width: 60px;
-        height: 84px;
+        width: 80px;
+        height: 112px;
     }
     
     .card-center {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
     
     .card-corner {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Hover states for non-touch devices */
+@media (hover: hover) {
+    .game-card:hover {
+        transform: translateY(-4px);
+        background: rgba(255,255,255,0.1);
+        border-color: #e94560;
+        box-shadow: 0 8px 30px rgba(233, 69, 96, 0.25);
     }
     
-    .chip-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 0.8rem;
+    .die:hover {
+        transform: scale(1.05);
     }
     
-    .bet-section {
-        gap: 20px;
-        font-size: 1rem;
+    .roll-btn:hover:not(:disabled) {
+        background: #ff6b6b;
+        transform: scale(1.03);
+    }
+    
+    .score-row:hover:not(.locked):not(.section-header) {
+        background: rgba(233, 69, 96, 0.3);
+    }
+    
+    .play-again-btn:hover {
+        background: #00e676;
+        transform: scale(1.03);
+    }
+    
+    .back-to-hub-btn:hover {
+        color: #fff;
+        border-color: #fff;
+    }
+    
+    .chip-btn:hover {
+        transform: scale(1.08);
+        background: #ffd700;
+        color: #1a1a2e;
+    }
+    
+    .action-btn.primary:hover:not(:disabled) {
+        background: #ff6b6b;
+        transform: scale(1.03);
+    }
+    
+    .action-btn.secondary:hover {
+        border-color: #fff;
+        color: #fff;
+    }
+    
+    .game-controls .action-btn:hover:not(:disabled) {
+        background: #00e676;
+        transform: scale(1.03);
+    }
+    
+    .new-round-btn:hover {
+        background: #ff6b6b;
+        transform: scale(1.02);
+    }
+    
+    .back-btn:hover {
+        color: #fff;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body {
+        padding-left: env(safe-area-inset-left, 12px);
+        padding-right: env(safe-area-inset-right, 12px);
     }
 }
